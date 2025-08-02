@@ -66,4 +66,4 @@ This project is provided under the MIT License.
 
 ## Author
 
-Developed by a passionate software developer eager to explore and apply the capabilities of modern AI systems. Feel free to connect with me on [GitHub](https://github.com/yourusername).
+Developed by a passionate software developer eager to explore and apply the capabilities of modern AI systems. Feel free to connect with me on [GitHub](https://github.com/thees-k).
