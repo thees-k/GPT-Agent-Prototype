@@ -45,6 +45,15 @@ Install dependencies:
 pip install openai
 ```
 
+.. or use a virtual environment:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
+pip install --upgrade pip
+pip install openai
+```
+
 ## Running the Prototype
 
 1. Set your OpenAI API key via environment variable:
