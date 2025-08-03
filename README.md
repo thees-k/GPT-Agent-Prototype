@@ -29,8 +29,7 @@ Example interactions are included in the repository as `example output 1.txt` an
 ```
 gpt-agent-prototype/
 ├── .gitignore
-├── example output 1.txt
-├── example output 2.txt
+├── example1.txt
 └── src/
     └── gpt_agent_prototype.py
 ```

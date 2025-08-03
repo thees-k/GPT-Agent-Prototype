@@ -1,0 +1,17 @@
+Welcome to the GPT Chatbot! Please ask your questions. Type 'exit' to quit.
+
+> Hello, should I visit the harbor of Hamburg today?
+
+_Function:_ Getting weather for Hamburg, Germany...
+
+The current temperature in Hamburg is 10° Celsius. Is there anything else you want to know about today's weather, such as rain or wind conditions, before deciding to visit the harbor?
+
+> If the weather at Paris is better, please invite Sandra to a walk by the Seine.
+
+_Function:_ Getting weather for Paris, France...
+
+_Function:_ Sending email to Sandra: Subject: Walk by the Seine, Body: Hi Sandra, the weather in Paris is lovely today, perfect for a walk by the Seine. Would you like to join me?
+
+The weather in Hamburg is 10° Celsius, which is quite cool. The weather in Paris is better at 20° Celsius. I have invited Sandra to a walk by the Seine in Paris. If you want me to help with anything else, just let me know!
+
+> exit
