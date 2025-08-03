@@ -5,7 +5,7 @@ import json
 # The functions that could be used by GPT:
 
 def get_weather(location):
-    print(f"Getting weather for {location}...\n")
+    print(f"_Function:_ Getting weather for {location}...\n")
     location = location.lower()
     if "paris" in location:
         return "20° Celsius"
@@ -17,7 +17,7 @@ def get_weather(location):
 
 
 def send_email(receiver, subject, body=""):
-    print(f"Sending email to {receiver}: Subject: {subject}, Body: {body}\n")
+    print(f"_Function:_ Sending email to {receiver}: Subject: {subject}, Body: {body}\n")
     return "Email sent successfully"
 
 
@@ -100,42 +100,35 @@ def print_gpt_messages(response, messages):
     if not response:
         print("- No response from GPT -\n")
         return
-    elif not response.output:
+    if not response.output:
         print("- No response output from GPT -\n")
         return
 
-    function_call_count = 0
+    function_calls = [item for item in response.output if item.type == "function_call"]
+    normal_messages = [item for item in response.output if item.type != "function_call"]
 
-    for item in response.output:
-        if item.type == "function_call":
-            function_call_count += 1
+    for item in normal_messages:
+        print(f"{response.output_text or ''}\n")
 
-            tool_call = item
+    for call in function_calls:
+        try:
+            args = json.loads(call.arguments)
+        except json.JSONDecodeError:
+            print(f"Error decoding arguments for function call {call.name}")
+            continue
 
-            name = tool_call.name
-            try:
-                args = json.loads(tool_call.arguments)
-            except json.JSONDecodeError:
-                print(f"Error decoding arguments for function call {name}")
-                continue
+        result = execute_tool_function(call.name, args)
 
-            result = execute_tool_function(name, args)
+        messages.append(call)
+        messages.append({
+            "type": "function_call_output",
+            "call_id": call.call_id,
+            "output": str(result),
+        })
 
-            messages.append(tool_call)
-            messages.append({
-                "type": "function_call_output",
-                "call_id": tool_call.call_id,
-                "output": str(result)
-            })
-
-        else:
-            message_for_user = response.output_text or ""
-            print(f"{message_for_user}\n")
-
-
-    if function_call_count > 0:
-        response = get_gpt_response(messages, tools)
-        print_gpt_messages(response, messages)
+    if function_calls:
+        new_response = get_gpt_response(messages, tools)
+        print_gpt_messages(new_response, messages)
 
 
 # The OpenAI() client automatically reads the environment variable OPENAI_API_KEY (see .bashrc file)!
