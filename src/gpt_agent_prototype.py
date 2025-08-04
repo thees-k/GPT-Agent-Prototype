@@ -131,7 +131,7 @@ def print_gpt_messages(response, messages):
         print_gpt_messages(new_response, messages)
 
 
-# The OpenAI() client automatically reads the environment variable OPENAI_API_KEY (see .bashrc file)!
+# The OpenAI() client automatically reads the environment variable OPENAI_API_KEY (you can put it in your ~/.bashrc file)
 CLIENT = OpenAI()
 MODEL = "gpt-4.1-mini-2025-04-14"
 
