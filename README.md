@@ -22,7 +22,7 @@ As a software developer fascinated by new technologies like AI, this prototype r
 
 ## Example Output
 
-Example interactions are included in the repository as `example output 1.txt` and `example output 2.txt`.
+Example interactions are included in the repository as `example output 1.txt`.
 
 ## Project Structure
 
