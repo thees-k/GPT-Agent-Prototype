@@ -137,12 +137,12 @@ MODEL = "gpt-4.1-mini-2025-04-14"
 
 
 def start_chat():
-    print("Welcome to the GPT Chatbot! Please ask your questions. Type '\exit' to quit.\n")
+    print("Welcome to the GPT Chatbot! Please ask your questions. Type '\\exit' to quit.\n")
 
     messages = []
     while True:
         user_input = input("> ")
-        if user_input.lower() == "\exit":
+        if user_input.lower() == "\\exit":
             break
         print()
 
